@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ScrollingBG.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cloudA.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float scroll_speed;
+
+void fragment() {
+	vec2 u = UV;
+	u.x += scroll_speed*TIME;
+	vec4 col = texture(TEXTURE,u);
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/scroll_speed = 0.5
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 38.4452, 54.3942 )
+
+[node name="CloudA" type="Sprite"]
+
+[node name="ScrollingBG" parent="." instance=ExtResource( 1 )]
+material = SubResource( 2 )
+rect_scale = Vector2( 0.990118, 0.930411 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 510.988, 146.212 )
+scale = Vector2( 13.6, 3.78636 )
+shape = SubResource( 3 )

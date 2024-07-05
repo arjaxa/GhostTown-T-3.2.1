@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UPBUTTON.png" type="Texture" id=1]
+[ext_resource path="res://DOWNBUTTON.png" type="Texture" id=2]
+
+[node name="MobileControls" type="CanvasLayer"]
+
+[node name="UP" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.243137 )
+position = Vector2( 1.92779, 151.196 )
+scale = Vector2( 0.367525, 0.470537 )
+normal = ExtResource( 1 )
+passby_press = true
+action = "moveUP"
+
+[node name="DOWN" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.243137 )
+position = Vector2( -1.75818, 355.134 )
+scale = Vector2( 0.357887, 0.491803 )
+normal = ExtResource( 2 )
+passby_press = true
+action = "moveDOWN"
